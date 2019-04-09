@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Edabit</title>
+    </head>
+    <body>
+        <script>
+            // Vérifier si divisible par 100
+            const divisible = num => !(num % 100);
+
+            // vérifier si pair/even ou impair/odd
+            const isEvenOrOdd = num => (num % 2 ? "odd" : "even");
+
+            // function that converts two arrays of x- and y- coordinates into an array of (x,y) coordinates.
+            // convertCartesian([1, 5, 3, 3, 4], [5, 8, 9, 1, 0])
+            // ➞ [[1, 5], [5, 8], [3, 9], [3, 1], [4, 0]]
+
+            const convertCartesian = (x, y) =>
+                x.map((element, index) => [element, y[index]]);
+
+            // Retourne true si la chaine contient un espace
+
+            const hasSpaces = str => str.includes(" ");
+
+            /* const hasSpaces = str => str.indexOf(" ") > -1;
+
+            const hasSpaces = str => str.split(" ").length > 1;
+
+            const hasSpaces = str => str.match(/\s/g) != null; */
+
+            // Create a function that takes in a word and determines whether or not it is plural. A plural word is one that ends in s.
+
+            const isPlural = word => word[word.length - 1] === "s";
+            const isPluralBis = word => word.endsWith("s");
+
+            //Create a function that returns the total number of parameters passed in.
+
+            const numberArgs = (...args) => args.length;
+
+            //Créez une fonction qui prend un nombre en argument et renvoie le nombre de chiffres dont il dispose.
+
+            const findDigitAmount = num => num.toString().length;
+
+            // Créez une fonction qui prend dans un tableau et retourne true si toutes ses valeurs sont paires, sinon false.
+
+            const checkAllEven = arr => arr.every(x => x % 2 === 0);
+
+            //I am trying to filter out empty arrays from an array. In other words, I want to transform something that looks like this: ['a', 'b', [], [], [1, 2, 3]] to look like ['a', 'b', [1, 2, 3]].
+
+            const removeEmptyArrays = arr =>
+                arr.filter(x => x.toString().length > 0);
+
+            // Create a function replaces all the vowels in a string with a specified character.
+
+            const replaceVowels = (str, ch) => str.replace(/[aeiouy]/gi, ch);
+
+            // Create a function that counts the number of syllables a word has. Each syllable is separated with a dash -.
+
+            const numberSyllables = w => w.split("-").length;
+
+            // Create a function that takes an array of numbers and return the first and last elements as a new array.
+
+            const firstLast = arr => [arr[0], arr[arr.length - 1]];
+
+            // Create a function that takes a number as an argument and returns an array of numbers counting down from this number to zero.
+
+            const countdown = start => {
+                const result = [];
+                for (let i = start; i >= 0; i--) {
+                    result.push(i);
+                }
+                return result;
+            };
+
+            const countdown2 = start => [...Array(start + 1).keys()].reverse();
+
+            const countdown3 = start =>
+                Array.from({ length: start + 1 }, (_, i) => start - i);
+
+            //Create a function to remove all null values from an array.
+
+            const removeNull = arr => arr.filter(x => x != null);
+
+            const removeNull2 = arr => arr.filter(Boolean);
+
+            // Convert Number to Corresponding Month Name
+            const month_name = n => {
+                const month = [
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December"
+                ];
+                return month[n - 1];
+            };
+
+            const month_name2 = num =>
+                new Date(2000, num - 1).toLocaleString("en-us", {
+                    month: "long"
+                });
+
+            //Write a function that returns true if an input string contains only uppercase or only lowercase letters.
+
+            const sameCase = str =>
+                str == str.toLowerCase() || str == str.toUpperCase();
+
+            // remove all vowels from a string.
+
+            const removeVowels = str => str.replace(/[aeiou]/gi, "");
+
+            // Return First and Last Parameter
+
+            const firstArg = (...args) => args[0];
+
+            const lastArg = (...args) => args[args.length - 1];
+
+            // Filter by Digit Length
+
+            const filterDigitLength = (arr, num) =>
+                arr.filter(x => x.toString().length === num);
+            const filterDigitLength2 = (arr, num) =>
+                arr.filter(x => String(x).length === num);
+
+            //
+            // Repeating Letters N Times
+
+            const repeat = (str, n) =>
+                str
+                    .split("")
+                    .map(x => x.repeat(n))
+                    .join("");
+            const repeat2 = (str, n) => [...str].map(x => x.repeat(n)).join("");
+
+            // Create a function that filters out an array of state names into two categories based on the second parameter.
+            // Abbreviations abb
+            // Full names full
+
+            const filterStateNames = (arr, type) =>
+                arr.filter(el =>
+                    type === "abb" ? el.length === 2 : el.length > 2
+                );
+
+            // Capture the Rook
+
+            const canCapture = ([yourRook, opponentsRook]) =>
+                yourRook[0] === opponentsRook[0] ||
+                yourRook[1] === opponentsRook[1];
+
+            // Missing Third Angle
+
+            const missingAngle = (angle1, angle2) => {
+                const angle3 = 180 - angle1 - angle2;
+                if (angle3 < 90) {
+                    return "acute";
+                } else if (angle3 === 90) {
+                    return "right";
+                } else {
+                    return "obtuse";
+                }
+            };
+
+            const missingAngle2 = (angle1, angle2) =>
+                angle1 + angle2 < 90
+                    ? "obtuse"
+                    : angle1 + angle2 > 90
+                    ? "acute"
+                    : "right";
+
+            //
+            // Get Word Count
+            const countWords = s => s.split` `.length;
+
+            //Find the Largest Number in an Array
+
+            const findLargestNum = arr => Math.max(...arr);
+
+            // Palindrome?
+
+            const checkPalindrome = str => [...str].reverse().join("") === str;
+
+            // Get Student Names
+
+            const getStudentNames = arr => arr.map(x => x.name);
+
+            // Remove Duplicates from Array
+
+            const removeDups = arr => [...new Set(arr)];
+
+            // Remove the First and Last Characters
+
+            const removeFirstLast = str => str.slice(1, -1);
+     
+            // Char-to-ASCII
+            
+        </script>
+    </body>
+</html>
