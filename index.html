@@ -8,10 +8,25 @@
     </head>
     <body>
         <script>
+            // Create a function to multiply all values in an array by the amount of values in that array.
 
+            const MultiplyByLength = arr => arr.map(x => x * arr.length);
+
+            // Create a function that takes in two arrays: the array of user-typed words, and the array of correctly-typed words and outputs an array containing 1s (correctly-typed words) and -1s (incorrectly-typed words).
+
+            const correctStream = (user, correct) =>
+                user.map((el, i) => (el === correct[i] ? 1 : -1));
+            console.log(
+                correctStream(
+                    ["cat", "blue", "skt", "umbrells", "paddy"],
+                    ["cat", "blue", "sky", "umbrella", "paddy"]
+                )
+            );
+
+            //
             // Return the Index of the First Vowel
 
-            const firstVowel = str => str.search(/[aeiou]/i)
+            const firstVowel = str => str.search(/[aeiou]/i);
             // A number added with its additive inverse equals zero. Create a function that returns an array of additive inverses.
 
             const additiveInverse = arr => arr.map(x => x * -1);
